@@ -1,0 +1,30 @@
+---
+title: "Kouvaris Karanja Q5"
+author: "Alice Karanja & Peter Kouvaris"
+date: "4/25/2017"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Q5
+
+```{r}
+t<-seq(0,10,length=1000)
+x<-sqrt(t)*cos(2*pi*t)
+y<-sqrt(t)*sin(2*pi*t)
+plot(x,y,axes=F,type="l",lwd=3,xlab="x(t)",ylab="y(t)",col="red")
+
+axis(1,at=seq(-3,3,by=0.5),labels=seq(-3,3,by=0.5))
+axis(2)
+box()
+title(main=expression(
+  paste("(x(t),y(t)) with polar coordinates",
+        (list(sqrt(t),2*pi*t))
+  )))
+
+```

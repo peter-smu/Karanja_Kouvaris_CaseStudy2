@@ -1,0 +1,46 @@
+---
+title: "Kouvaris Karanja 3"
+author: "Alice Karanja & Peter Kouvaris"
+date: "4/25/2017"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# get data
+```{r}
+# The Data Set
+attach(Orange)
+head(Orange)
+```
+
+## (a)
+```{r}
+for (class in unique(Orange$Tree)) {
+  df <- Orange[Orange$Tree == class,]
+  print(class)
+  print(mean(df$circumference))
+  print(median(df$circumference))
+}
+```
+## (b)
+```{r}
+plot(Orange$age ~ Orange$circumference,
+     xlab = "Age (Days)",
+     ylab = "Circumference",
+     pch = c(1, 2, 3, 4, 5)[as.numeric(Orange$Tree)],  # different 'pch' types 
+     main = "Organge Tree Growth",
+     col = c("red", "green","blue","magenta", "orange")[as.numeric(Orange$Tree)],
+     data = Orange)
+```
+## (c)
+```{r}
+boxplot(circumference~Tree, data=Orange,  ylab = "Circumference",
+        main="Tree Circumference", xlab="Tree (Left -> Right by Max Diameter")
+
+
+```
